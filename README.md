@@ -19,7 +19,7 @@ To get started with this framework, follow these steps:
 
 ### **1. Clone the Repository**
 
-```bash
+bash
 git clone https://github.com/Selbinyyaz/Hrms_Cucumber_Framework.git
 cd Hrms_Cucumber_Framework
 
@@ -28,10 +28,8 @@ Make sure you have Java installed and your IDE is set up (e.g., IntelliJ IDEA or
 
 If you haven't installed Maven, you can get it from here.
 Run the following command to install the dependencies:
-bash
-Copy
-Edit
 mvn clean install
+
 3. WebDriver Setup
 Ensure that you have the ChromeDriver or other WebDriver binaries installed and set in your system PATH or specify the path in the config.properties file.
 
@@ -126,3 +124,4 @@ Code Guidelines
 Follow Java naming conventions for classes and methods.
 Ensure your feature files are clear, concise, and follow Gherkin syntax.
 Write clean, reusable, and maintainable step definitions.
+```
