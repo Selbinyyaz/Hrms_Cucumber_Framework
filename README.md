@@ -19,7 +19,7 @@ To get started with this framework, follow these steps:
 
 ### **1. Clone the Repository**
 
-bash
+mvn clean install
 git clone https://github.com/Selbinyyaz/Hrms_Cucumber_Framework.git
 cd Hrms_Cucumber_Framework
 
@@ -29,56 +29,53 @@ Make sure you have Java installed and your IDE is set up (e.g., IntelliJ IDEA or
 If you haven't installed Maven, you can get it from here.
 Run the following command to install the dependencies:
 
-bash
+```sh
 mvn clean install
+```
 
-3. WebDriver Setup
+###**3. WebDriver Setup**
 Ensure that you have the ChromeDriver or other WebDriver binaries installed and set in your system PATH or specify the path in the config.properties file.
 
-4. Running Tests
+###**4. Running Tests**
 You can run the tests using Maven with the following command:
-
-bash
-Copy
-Edit
+```sh
 mvn test
+```
 This will execute all Cucumber feature files and display the results in the console. The generated test reports will be located in the target/cucumber-reports/ directory.
 
 Alternatively, you can run a specific feature or scenario using:
 
-bash
-Copy
-Edit
+```sh
 mvn -Dcucumber.options="--tags @Login" test
-Writing Tests
-1. Feature Files
+```
+##**Writing Tests**
+###**1. Feature Files**
 The feature files are written in Gherkin syntax and are located in the src/test/resources directory. Here's an example of a simple login feature:
 
+```sh
 gherkin
-Copy
-Edit
 Feature: User Login
 
   Scenario: Valid user logs in successfully
     Given I open the login page
     When I enter valid username and password
     Then I should be redirected to the dashboard
-2. Step Definitions
+```
+##**2. Step Definitions**
 Step definition files map the steps in the feature files to the actual Selenium WebDriver actions. These are written in the steps/ package in Java. Here’s an example of a step definition for opening a page:
 
+```sh
 java
-Copy
-Edit
 @Given("^I open the login page$")
 public void iOpenTheLoginPage() {
     driver.get("http://example.com/login");
 }
-3. Page Object Model
+```
+##***3. Page Object Model**
 The page objects are located in the pages/ package. A page object encapsulates the interactions with the web elements on a page, making the code more maintainable. For example:
 
+```sh
 java
-Copy
-Edit
 public class LoginPage {
     WebDriver driver;
     
@@ -102,12 +99,11 @@ public class LoginPage {
         loginButton.click();
     }
 }
-4. Test Runner
+```
+##**4. Test Runner**
 The test runner class is used to execute the Cucumber tests. It is typically located in the runners/ package. Here’s an example:
-
+```sh
 java
-Copy
-Edit
 @RunWith(Cucumber.class)
 @CucumberOptions(
   features = "src/test/resources/features",
@@ -116,13 +112,14 @@ Edit
 )
 public class TestRunner {
 }
-Reporting
+```
+##**Reporting**
 After running the tests, Cucumber generates detailed HTML and JSON reports that provide insights into the test execution. The reports are generated in the target/cucumber-reports/ directory.
 
-Contributing
+##**Contributing**
 Feel free to fork the repository and submit pull requests for improvements. If you find any issues or bugs, please open an issue on GitHub.
 
-Code Guidelines
+##**Code Guidelines**
 Follow Java naming conventions for classes and methods.
 Ensure your feature files are clear, concise, and follow Gherkin syntax.
 Write clean, reusable, and maintainable step definitions.
