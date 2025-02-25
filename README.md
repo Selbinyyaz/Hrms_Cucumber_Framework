@@ -28,6 +28,8 @@ Make sure you have Java installed and your IDE is set up (e.g., IntelliJ IDEA or
 
 If you haven't installed Maven, you can get it from here.
 Run the following command to install the dependencies:
+
+bash
 mvn clean install
 
 3. WebDriver Setup
