@@ -53,7 +53,6 @@ mvn -Dcucumber.options="--tags @Login" test
 The feature files are written in Gherkin syntax and are located in the src/test/resources directory. Here's an example of a simple login feature:
 
 ```sh
-gherkin
 Feature: User Login
 
   Scenario: Valid user logs in successfully
@@ -65,7 +64,6 @@ Feature: User Login
 Step definition files map the steps in the feature files to the actual Selenium WebDriver actions. These are written in the steps/ package in Java. Here’s an example of a step definition for opening a page:
 
 ```sh
-java
 @Given("^I open the login page$")
 public void iOpenTheLoginPage() {
     driver.get("http://example.com/login");
@@ -75,7 +73,6 @@ public void iOpenTheLoginPage() {
 The page objects are located in the pages/ package. A page object encapsulates the interactions with the web elements on a page, making the code more maintainable. For example:
 
 ```sh
-java
 public class LoginPage {
     WebDriver driver;
     
@@ -103,7 +100,6 @@ public class LoginPage {
 ## **4. Test Runner**
 The test runner class is used to execute the Cucumber tests. It is typically located in the runners/ package. Here’s an example:
 ```sh
-java
 @RunWith(Cucumber.class)
 @CucumberOptions(
   features = "src/test/resources/features",
@@ -123,4 +119,3 @@ Feel free to fork the repository and submit pull requests for improvements. If y
 Follow Java naming conventions for classes and methods.
 Ensure your feature files are clear, concise, and follow Gherkin syntax.
 Write clean, reusable, and maintainable step definitions.
-```
