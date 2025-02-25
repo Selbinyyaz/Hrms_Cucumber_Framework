@@ -18,10 +18,11 @@ The project is organized as follows:
 To get started with this framework, follow these steps:
 
 ### **1. Clone the Repository**
-
+```sh
 mvn clean install
 git clone https://github.com/Selbinyyaz/Hrms_Cucumber_Framework.git
 cd Hrms_Cucumber_Framework
+```
 
 ### **2. Set Up the Project**
 Make sure you have Java installed and your IDE is set up (e.g., IntelliJ IDEA or Eclipse). Then, you can build the project using Maven.
