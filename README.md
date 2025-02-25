@@ -1,56 +1,128 @@
-# **Hrms Cucumber Framework**
+# **HRMS Cucumber Framework**
 
-## **Overview**
-This project is a **Cucumber-based automation framework** designed for testing the **HRMS (Human Resource Management System)** application. It utilizes **Cucumber with WebDriverIO** for writing and executing **BDD (Behavior Driven Development)** test scenarios.
-
-## **Tech Stack**
-- **Cucumber** - **BDD testing framework**
-- **WebDriverIO** - **Web automation framework**
-- **Node.js** - **JavaScript runtime**
-- **TypeScript** - **Strongly-typed JavaScript**
-- **Chai** - **Assertion library**
-- **Allure Reporter** - **Test reporting**
-
-## **Prerequisites**
-Before running the tests, ensure you have the following installed:
-- **Node.js** (Latest **LTS** version recommended)
-- **npm** or **yarn**
-- **Google Chrome** (Latest version recommended)
-
-## **Installation**
-Clone the repository and install dependencies:
-```sh
-git clone https://github.com/Selbinyyaz/Hrms_Cucumber_Framework.git
-cd Hrms_Cucumber_Framework
-npm install
-```
-
-## **Running Tests**
-To execute the test suite, use the following command:
-```sh
-npm run test
-```
-For running specific feature files:
-```sh
-npm run test -- --spec ./features/login.feature
-```
-
-## **Test Reports**
-Test execution results can be viewed using **Allure Reports**:
-```sh
-npm run allure:generate
-npm run allure:open
-```
+This repository contains a Selenium-based Cucumber framework for testing HRMS (Human Resource Management System) applications. The framework follows Behavior-Driven Development (BDD) principles and is written in Java. It provides a structure for writing readable, maintainable, and automated tests.
 
 ## **Project Structure**
-```
-Hrms_Cucumber_Framework/
-│-- **features/**           # Cucumber feature files
-│-- **step-definitions/**   # Step definitions
-│-- **pages/**              # Page object models
-│-- **reports/**            # Test reports
-│-- **wdio.conf.js**        # WebDriverIO configuration
-│-- **package.json**        # Dependencies and scripts
-```
 
+The project is organized as follows:
 
+- `src/test/resources/`: Contains the feature files, written in Gherkin syntax.
+- `src/test/java/`: Contains the step definition files, page objects, and test runners.
+  - `steps/`: Step definition files that map the steps in feature files to the corresponding test actions.
+  - `pages/`: Page Object Model classes that encapsulate the web elements and actions for specific pages.
+  - `runners/`: The test runner class for executing the Cucumber features.
+- `target/`: Output directory where test reports are generated.
+
+## **Installation**
+
+To get started with this framework, follow these steps:
+
+### **1. Clone the Repository**
+
+```bash
+git clone https://github.com/Selbinyyaz/Hrms_Cucumber_Framework.git
+cd Hrms_Cucumber_Framework
+
+### **2. Set Up the Project**
+Make sure you have Java installed and your IDE is set up (e.g., IntelliJ IDEA or Eclipse). Then, you can build the project using Maven.
+
+If you haven't installed Maven, you can get it from here.
+Run the following command to install the dependencies:
+bash
+Copy
+Edit
+mvn clean install
+3. WebDriver Setup
+Ensure that you have the ChromeDriver or other WebDriver binaries installed and set in your system PATH or specify the path in the config.properties file.
+
+4. Running Tests
+You can run the tests using Maven with the following command:
+
+bash
+Copy
+Edit
+mvn test
+This will execute all Cucumber feature files and display the results in the console. The generated test reports will be located in the target/cucumber-reports/ directory.
+
+Alternatively, you can run a specific feature or scenario using:
+
+bash
+Copy
+Edit
+mvn -Dcucumber.options="--tags @Login" test
+Writing Tests
+1. Feature Files
+The feature files are written in Gherkin syntax and are located in the src/test/resources directory. Here's an example of a simple login feature:
+
+gherkin
+Copy
+Edit
+Feature: User Login
+
+  Scenario: Valid user logs in successfully
+    Given I open the login page
+    When I enter valid username and password
+    Then I should be redirected to the dashboard
+2. Step Definitions
+Step definition files map the steps in the feature files to the actual Selenium WebDriver actions. These are written in the steps/ package in Java. Here’s an example of a step definition for opening a page:
+
+java
+Copy
+Edit
+@Given("^I open the login page$")
+public void iOpenTheLoginPage() {
+    driver.get("http://example.com/login");
+}
+3. Page Object Model
+The page objects are located in the pages/ package. A page object encapsulates the interactions with the web elements on a page, making the code more maintainable. For example:
+
+java
+Copy
+Edit
+public class LoginPage {
+    WebDriver driver;
+    
+    @FindBy(id = "username")
+    WebElement usernameField;
+    
+    @FindBy(id = "password")
+    WebElement passwordField;
+    
+    @FindBy(id = "loginButton")
+    WebElement loginButton;
+    
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void login(String username, String password) {
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password);
+        loginButton.click();
+    }
+}
+4. Test Runner
+The test runner class is used to execute the Cucumber tests. It is typically located in the runners/ package. Here’s an example:
+
+java
+Copy
+Edit
+@RunWith(Cucumber.class)
+@CucumberOptions(
+  features = "src/test/resources/features",
+  glue = "steps",
+  plugin = {"pretty", "html:target/cucumber-reports"}
+)
+public class TestRunner {
+}
+Reporting
+After running the tests, Cucumber generates detailed HTML and JSON reports that provide insights into the test execution. The reports are generated in the target/cucumber-reports/ directory.
+
+Contributing
+Feel free to fork the repository and submit pull requests for improvements. If you find any issues or bugs, please open an issue on GitHub.
+
+Code Guidelines
+Follow Java naming conventions for classes and methods.
+Ensure your feature files are clear, concise, and follow Gherkin syntax.
+Write clean, reusable, and maintainable step definitions.
