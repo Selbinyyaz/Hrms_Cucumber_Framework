@@ -1,4 +1,4 @@
-# **Hrms Cucumber Framework**
+still did't get it. I am trying look like this # **Hrms Cucumber Framework**
 
 ## **Overview**
 This project is a **Cucumber-based automation framework** designed for testing the **HRMS (Human Resource Management System)** application. It utilizes **Cucumber with WebDriverIO** for writing and executing **BDD (Behavior Driven Development)** test scenarios.
@@ -23,24 +23,34 @@ Clone the repository and install dependencies:
 git clone https://github.com/Selbinyyaz/Hrms_Cucumber_Framework.git
 cd Hrms_Cucumber_Framework
 npm install
+```
 
 ## **Running Tests**
-To execute the test suite, use the following command:  
+To execute the test suite, use the following command:
 ```sh
 npm run test
-
+```
+For running specific feature files:
+```sh
 npm run test -- --spec ./features/login.feature
+```
 
 ## **Test Reports**
-Test execution results can be viewed using Allure Reports:
+Test execution results can be viewed using **Allure Reports**:
 ```sh
 npm run allure:generate
 npm run allure:open
+```
 
-## **Hrms_Cucumber_Framework**
-│-- features/           # Cucumber feature files
-│-- step-definitions/   # Step definitions
-│-- pages/              # Page object models
-│-- reports/            # Test reports
-│-- wdio.conf.js        # WebDriverIO configuration
-│-- package.json        # Dependencies and scripts
+## **Project Structure**
+```
+Hrms_Cucumber_Framework/
+│-- **features/**           # Cucumber feature files
+│-- **step-definitions/**   # Step definitions
+│-- **pages/**              # Page object models
+│-- **reports/**            # Test reports
+│-- **wdio.conf.js**        # WebDriverIO configuration
+│-- **package.json**        # Dependencies and scripts
+```
+
+
