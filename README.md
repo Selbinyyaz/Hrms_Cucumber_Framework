@@ -6,7 +6,7 @@ This repository contains a Selenium-based Cucumber framework for testing HRMS (H
 
 The project is organized as follows:
 
-- `src/test/resources/`: Contains the feature files, written in Gherkin syntax.
+- `src/test/resources/feature`: Contains the feature files, written in Gherkin syntax.
 - `src/test/java/`: Contains the step definition files, page objects, and test runners.
   - `steps/`: Step definition files that map the steps in feature files to the corresponding test actions.
   - `pages/`: Page Object Model classes that encapsulate the web elements and actions for specific pages.
