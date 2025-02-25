@@ -56,16 +56,20 @@ npm run allure:open
 Project Structure
 
 Hrms_Cucumber_Framework/
-│-- features/           # Cucumber feature files
-│-- step-definitions/   # Step definitions
-│-- pages/              # Page object models
-│-- reports/            # Test reports
-│-- wdio.conf.js        # WebDriverIO configuration
-│-- package.json        # Dependencies and scripts
+│-- **features/**           # Cucumber feature files
+│-- **step-definitions/**   # Step definitions
+│-- **pages/**              # Page object models
+│-- **reports/**            # Test reports
+│-- **wdio.conf.js**        # WebDriverIO configuration
+│-- **package.json**        # Dependencies and scripts
 
 Contribution
 
 Feel free to contribute by creating pull requests or opening issues.
 
+License
 
+This project is licensed under the MIT License.
+
+Author: Selbi Altyyeva
 
