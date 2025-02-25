@@ -23,3 +23,24 @@ Clone the repository and install dependencies:
 git clone https://github.com/Selbinyyaz/Hrms_Cucumber_Framework.git
 cd Hrms_Cucumber_Framework
 npm install
+
+## **Running Tests**
+To execute the test suite, use the following command:  
+```sh
+npm run test
+
+npm run test -- --spec ./features/login.feature
+
+## **Test Reports**
+Test execution results can be viewed using Allure Reports:
+```sh
+npm run allure:generate
+npm run allure:open
+
+## **Hrms_Cucumber_Framework**
+│-- features/           # Cucumber feature files
+│-- step-definitions/   # Step definitions
+│-- pages/              # Page object models
+│-- reports/            # Test reports
+│-- wdio.conf.js        # WebDriverIO configuration
+│-- package.json        # Dependencies and scripts
